@@ -1,8 +1,8 @@
 import {ArrayMaxSize, IsBoolean, IsNotEmpty, IsNumber, IsString, ValidateIf, ValidateNested} from 'class-validator';
 import {Type} from "class-transformer";
-import {ChargingConnectorDto} from "./create-charging-connector.dto";
+import {ChargingConnectorDto} from "./charging-connector.dto";
 
-export class CreateStationDto {
+export class StationDto {
   @IsNotEmpty()
   @IsString()
   title: string;

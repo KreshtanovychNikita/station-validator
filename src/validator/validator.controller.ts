@@ -10,7 +10,7 @@ import {
   ValidationPipe, Req
 } from '@nestjs/common';
 import { ValidatorService } from './validator.service';
-import { CreateStationDto } from './dto/create-station.dto';
+import { StationDto } from './dto/station.dto';
 
 @Controller('stations')
 export class ValidatorController {
@@ -18,7 +18,7 @@ export class ValidatorController {
 
   @Post('CreateNewStation')
   @UsePipes(new ValidationPipe({ transform: true }))
-  async createStation(@Body() body: CreateStationDto) {
+  async createStation(@Body() body: StationDto) {
     await this.validatorService.createStation(body);
     return { message: `Station successfully created` };
   }

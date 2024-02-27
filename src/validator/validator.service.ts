@@ -2,7 +2,7 @@ import {Injectable, NotFoundException} from '@nestjs/common';
 import {StationEntity} from "./entities/station.entity";
 import {InjectRepository} from "@nestjs/typeorm";
 import {Repository} from "typeorm";
-import {CreateStationDto} from "./dto/create-station.dto";
+import {StationDto} from "./dto/station.dto";
 
 @Injectable()
 export class ValidatorService {
@@ -11,7 +11,7 @@ export class ValidatorService {
       private readonly stationRepository: Repository<StationEntity>,
   ) {}
 
-  async createStation(createStationDto: CreateStationDto): Promise<StationEntity> {
+  async createStation(createStationDto: StationDto): Promise<StationEntity> {
     const station = this.stationRepository.create(createStationDto);
     return await this.stationRepository.save(station);
   }
